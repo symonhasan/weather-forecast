@@ -12,4 +12,10 @@ class App extends Component {
   }
 }
 
-export default connect()( App );
+const mapStateToProps = ( state ) => {
+  return{
+    userCurrLocData: state.userCurrLocData
+  }
+}
+
+export default connect( mapStateToProps )( App );
