@@ -3,7 +3,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 0 5vw;
+    padding: 2vh 5vw;
     box-shadow: 3px 5px 3px rgb(49, 49, 49 , 0.2);
     position: sticky;
     top: 0;
