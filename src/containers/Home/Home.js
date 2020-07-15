@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Home.css";
 import { connect } from "react-redux";
+import Navigation from "../../components/Navigation/Navigation";
 
 class Home extends Component {
   setHomeClass(id) {
@@ -39,7 +40,11 @@ class Home extends Component {
   }
 
   render() {
-    return <div className={this.props.bgClass}></div>;
+    return (
+      <div className={this.props.bgClass}>
+        <Navigation />
+      </div>
+    );
   }
 }
 

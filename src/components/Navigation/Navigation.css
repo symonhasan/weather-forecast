@@ -1,0 +1,27 @@
+.top-nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5vw;
+    box-shadow: 3px 5px 3px rgb(49, 49, 49 , 0.2);
+    position: sticky;
+    top: 0;
+}
+.top-nav-title{
+    font-size: 1.3rem;
+    color: rgb(255, 255, 255 , 0.8);
+    letter-spacing: 2px;
+}
+.top-nav-search{
+    padding: 5px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #cccccc;
+    width: 15vw;
+    background-color: transparent;
+    color: white;
+}
+.top-nav-search::placeholder{
+    color: white;
+}
