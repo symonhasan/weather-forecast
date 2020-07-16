@@ -1,11 +1,48 @@
-.city-card{
+.city-info{
+    display: flex;
+    flex-direction: column;
     margin-top: 5vh;
-    margin-left: 5vw;
-    margin-right: 5vw;
-    padding: 2rem;
-    background-color: transparent;
+    margin-left: 15vw;
+    margin-right: 15vw;
+    padding: 3vw 0;
+    background-color: rgba(0, 0, 0, 0.2);
     box-shadow: 3px 5px 3px rgb(49, 49, 49 , 0.2);
     border-radius: 4px;
+}
+.city-time{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 0;
+    justify-content: space-around;
+}
+.ct-type{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    color: #E3E9ED;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+}
+.ct-type p{
+    margin-left: 10px;
+}
+.ct-type p > span{
+    font-size: 2rem;
+}
+.ct-date p{
+    font-size: 2.5rem;
+    color: #E3E9ED;
+}
+.ct-date p > span {
+    font-size: 0.8rem;;
+}
+.city-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 5vh;
 }
 .city-card-left{
     display: flex;
@@ -34,18 +71,55 @@
     display: flex;
     flex-direction: row nowrap;
     font-size: 1.7rem;
-    color: white;
+    color: #E3E9ED;
+    margin-top: 28px;
 }
 .city-temp-additional span{
-    padding: 20px 10px;
-    padding-bottom: 5px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    margin-right: 5px;
+    padding: 0 20px;
 }
 .city-temp-additional span p{
     font-size: 0.75rem;
     margin-top: 15px;
     text-align: center;
     letter-spacing: 2px;
+}
+.city-weather-img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.city-weather-img p{
+    color: white;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    margin-top: -30px;
+}
+.city-weather-img span{
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: #ccc;
+    text-transform: capitalize;
+}
+
+.city-additional-info{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    min-height: inherit;
+    justify-content: space-between;
+}
+.city-additional-info > span{
+    display: flex;
+    flex-direction: column;
+}
+.cad-type{
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    letter-spacing: 3px;
+}
+.cad-value{
+    font-size: 1.4rem;
+    align-self: flex-end;
 }
