@@ -17,6 +17,8 @@ const CityWeather = (props) => {
   let humidity = "";
   let pressure = "";
   let wind = "";
+  let sunrise = "";
+  let sunset = "";
 
   if (props.userCurrLocData) {
     console.log(props.userCurrLocData);
@@ -35,6 +37,8 @@ const CityWeather = (props) => {
     }
     if (props.userCurrLocData.sys) {
       country = props.userCurrLocData.sys.country;
+      sunrise = props.userCurrLocData.sys.sunrise;
+      sunset = props.userCurrLocData.sys.sunset;
     }
     if (props.userCurrLocData.wind) {
       wind = props.userCurrLocData.wind.speed;
@@ -43,7 +47,12 @@ const CityWeather = (props) => {
 
   return (
     <div className="city-info">
-      <Day payload="" />
+      <Day
+        payload={{
+          sunrise: sunrise,
+          sunset: sunset,
+        }}
+      />
       <Weather
         payload={{
           weatherIconUrl: weatherIconUrl,

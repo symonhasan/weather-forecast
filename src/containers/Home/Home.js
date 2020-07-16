@@ -36,7 +36,6 @@ class Home extends Component {
         .catch((err) => {
           throw err;
         });
-      console.log(this.props);
     });
   }
 
