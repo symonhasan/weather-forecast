@@ -23,6 +23,19 @@ const CityInfo = (props) => {
   let whumidity = "";
   let wpressure = "";
   let wwind = "";
+  const weekDays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thrusday",
+    "Friday",
+    "Saturday",
+  ];
+  const today = weekDays[new Date().getDay()];
+  const todayDate = new Date().getDate();
+  const todayMonth = new Date().getMonth();
+  const todayYear = new Date().getFullYear();
 
   if (props.userCurrLocData) {
     console.log(props.userCurrLocData);
@@ -51,8 +64,9 @@ const CityInfo = (props) => {
     <div className="city-info">
       <div className="city-time">
         <div className="ct-date">
-          <p>Thrusday
-          <span>Date</span>
+          <p>
+            {today}
+            <span>{`${todayDate}/${todayMonth}/${todayYear}`}</span>
           </p>
         </div>
         <span className="ct-type">
