@@ -1,0 +1,29 @@
+.day-div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px 0;
+    justify-content: space-around;
+}
+.dd-type{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    color: #E3E9ED;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+}
+.dd-type p{
+    margin-left: 10px;
+}
+.dd-type p > span{
+    font-size: 2rem;
+}
+.day-div-date p{
+    font-size: 2.5rem;
+    color: #E3E9ED;
+}
+.day-div-date p > span {
+    font-size: 0.8rem;;
+}

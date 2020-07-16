@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./Home.css";
 import { connect } from "react-redux";
 import Navigation from "../../components/Navigation/Navigation";
-import CityInfo from "../../components/CityInfo/CityInfo";
+import CityWeather from "../../components/CityWeather/CityWeather";
 
 class Home extends Component {
   setHomeClass(id) {
@@ -44,7 +44,7 @@ class Home extends Component {
     return (
       <div className={this.props.bgClass}>
         <Navigation />
-        <CityInfo />
+        <CityWeather />
       </div>
     );
   }
