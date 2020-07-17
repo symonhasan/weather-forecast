@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import "./Forecast.css";
 import { connect } from "react-redux";
-import { convertTempToCelcius, convertUnixTime, convertUnixDate } from "../../utils/utils";
+import {
+  convertTempToCelcius,
+  convertUnixTime,
+  convertUnixDate,
+} from "../../utils/utils";
 
 const renderHourlyWeatherData = (data, page) => {
   const low = page * 6;
@@ -43,33 +47,36 @@ const renderHourlyWeatherData = (data, page) => {
   });
 };
 
-const renderWeeklyWeatherData = ( data ) => {
-  return data.map( ( el , index ) => {
-    const time = convertUnixDate( el.dt );
-    const { humidity , pressure } = el;
-    const sunrise = convertUnixTime( el.sunrise );
-    const sunset = convertUnixTime( el.sunset );
+const renderWeeklyWeatherData = (data, page) => {
+  const low = page * 4;
+  const up = low + 4;
+  return data.map((el, index) => {
+    const time = convertUnixDate(el.dt);
+    const { humidity, pressure } = el;
+    const sunrise = convertUnixTime(el.sunrise);
+    const sunset = convertUnixTime(el.sunset);
     const wind = el.wind_speed;
-    const weather = el.weather[ 0 ].main;
+    const weather = el.weather[0].main;
     const iconUrl = `http://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`;
     const feelsLike = {
-      morn: convertTempToCelcius( el.feels_like.morn ),
-      day: convertTempToCelcius( el.feels_like.day ),
-      eve: convertTempToCelcius( el.feels_like.eve ),
-      night: convertTempToCelcius( el.feels_like.night ),
+      morn: convertTempToCelcius(el.feels_like.morn),
+      day: convertTempToCelcius(el.feels_like.day),
+      eve: convertTempToCelcius(el.feels_like.eve),
+      night: convertTempToCelcius(el.feels_like.night),
     };
     const temp = {
-      morn: convertTempToCelcius( el.temp.morn ),
-      day: convertTempToCelcius( el.temp.day ),
-      eve: convertTempToCelcius( el.temp.eve ),
-      night: convertTempToCelcius( el.temp.night ),
-      max: convertTempToCelcius( el.temp.max ),
-      min: convertTempToCelcius( el.temp.min ),
+      morn: convertTempToCelcius(el.temp.morn),
+      day: convertTempToCelcius(el.temp.day),
+      eve: convertTempToCelcius(el.temp.eve),
+      night: convertTempToCelcius(el.temp.night),
+      max: convertTempToCelcius(el.temp.max),
+      min: convertTempToCelcius(el.temp.min),
     };
-    return(
-      <div className="wf-info wf-info-data" key={index}>
-        <p>{time}</p>
-        <p
+    if (index >= low && index < up)
+      return (
+        <div className="wf-info wf-info-data" key={index}>
+          <p>{time}</p>
+          <p
             style={{
               display: "flex",
               alignItems: "center",
@@ -81,28 +88,31 @@ const renderWeeklyWeatherData = ( data ) => {
             </span>
             {weather}
           </p>
-        <p className="wf-multi">
-          <span>Morn {temp.morn}&deg;</span>
-          <span>Day {temp.day}&deg;</span>
-          <span>Eve {temp.eve}&deg;</span>
-          <span>Night {temp.night}&deg;</span>
-          <span>{temp.min}&deg; / {temp.max}&deg;</span>
-        </p>
-        <p className="wf-multi">
-        <span>Morn {feelsLike.morn}&deg;</span>
-          <span>Day {feelsLike.day}&deg;</span>
-          <span>Eve {feelsLike.eve}&deg;</span>
-          <span>Night {feelsLike.night}&deg;</span>
-        </p>
-        <p>{humidity}%</p>
-        <p>{pressure} hPa</p>
-        <p>{sunrise}</p>
-        <p>{sunset}</p>
-        <p>{wind} M/S</p>
-      </div>
-    )
-  })
-}
+          <p className="wf-multi">
+            <span>Morn {temp.morn}&deg;</span>
+            <span>Day {temp.day}&deg;</span>
+            <span>Eve {temp.eve}&deg;</span>
+            <span>Night {temp.night}&deg;</span>
+            <span>
+              {temp.min}&deg; / {temp.max}&deg;
+            </span>
+          </p>
+          <p className="wf-multi">
+            <span>Morn {feelsLike.morn}&deg;</span>
+            <span>Day {feelsLike.day}&deg;</span>
+            <span>Eve {feelsLike.eve}&deg;</span>
+            <span>Night {feelsLike.night}&deg;</span>
+          </p>
+          <p>{humidity}%</p>
+          <p>{pressure} hPa</p>
+          <p>{sunrise}</p>
+          <p>{sunset}</p>
+          <p>{wind} M/S</p>
+        </div>
+      );
+    else return null;
+  });
+};
 
 const renderPeginate = (incrementPage, decrementPage) => {
   return (
@@ -138,7 +148,12 @@ const renderHourlyForecast = (
   );
 };
 
-const renderWeeklyForecast = ( weeklyWeatherData ) => {
+const renderWeeklyForecast = (
+  weeklyWeatherData,
+  page,
+  incrementPage,
+  decrementPage
+) => {
   return (
     <div className="wf-div">
       <div className="wf-info wf-info-header">
@@ -153,8 +168,9 @@ const renderWeeklyForecast = ( weeklyWeatherData ) => {
         <p>Wind</p>
       </div>
       {weeklyWeatherData
-        ? renderWeeklyWeatherData( weeklyWeatherData.daily )
+        ? renderWeeklyWeatherData(weeklyWeatherData.daily, page)
         : null}
+      {weeklyWeatherData ? renderPeginate(incrementPage, decrementPage) : null}
     </div>
   );
 };
@@ -164,10 +180,15 @@ const Forecast = (props) => {
   const [page, setPage] = useState(0);
 
   const incrementPage = () => {
-    if (page < 7) setPage(page + 1);
+    if( mode === "Weekly" && page === 0 ) setPage(1);
+    if( mode === "Hourly" && page < 7 ) setPage(page + 1);
   };
   const decrementPage = () => {
-    if (page > 1) setPage(page - 1);
+    if( mode === "Weekly" && page === 1 ) setPage(0);
+    if( mode === "Hourly" && page >= 1 ) setPage(page - 1);
+  };
+  const resetPage = () => {
+    setPage(0);
   };
 
   if (props.weeklyWeatherData === undefined) {
@@ -210,7 +231,10 @@ const Forecast = (props) => {
         {mode === "Hourly" ? (
           <li
             onClick={(e) => {
-              if (mode === "Hourly") setMode("Weekly");
+              if (mode === "Hourly") {
+                setMode("Weekly");
+                resetPage();
+              }
             }}
           >
             Weekly
@@ -218,7 +242,10 @@ const Forecast = (props) => {
         ) : (
           <li
             onClick={(e) => {
-              if (mode === "Weekly") setMode("Hourly");
+              if (mode === "Weekly") {
+                setMode("Hourly");
+                resetPage();
+              }
             }}
           >
             Hourly
@@ -232,7 +259,12 @@ const Forecast = (props) => {
             incrementPage,
             decrementPage
           )
-        : renderWeeklyForecast( props.weeklyWeatherData )}
+        : renderWeeklyForecast(
+            props.weeklyWeatherData,
+            page,
+            incrementPage,
+            decrementPage
+          )}
     </div>
   );
 };
