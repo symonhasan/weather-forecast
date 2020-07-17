@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Weather from "../Weather/Weather";
 import Day from "../Day/Day";
 import { convertTempToCelcius } from "../../utils/utils";
+import Forecast from "../Forecast/Forecast";
 
 const CityWeather = (props) => {
   let weatherIconUrl = "";
@@ -69,12 +70,20 @@ const CityWeather = (props) => {
           wind: wind,
         }}
       />
+      {props.userLongitude && props.userLatitude ? (
+        <Forecast
+          latitude={props.userLatitude}
+          longitude={props.userLongitude}
+        />
+      ) : null}
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
+    userLatitude: state.userLatitude,
+    userLongitude: state.userLongitude,
     userCurrLocData: state.userCurrLocData,
   };
 };
