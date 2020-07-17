@@ -1,11 +1,8 @@
 .forecast-div{
-    margin-top: 3vw;
     display: flex;
     flex-direction: column;
 }
 .forecast-option{
-    margin-left: 20px;
-    margin-right: 20px;
     display: flex;
     flex-direction: row;
     width: inherit;
@@ -14,21 +11,22 @@
 }
 .forecast-option p{
     font-size: 1.5rem;
-    color: white;
+    color: #000000;
 }
 .forecast-option li{
     list-style-type: none;
     padding: 15px;
-    color: #ccc;
+    color: #000000;
     cursor: pointer;
     font-size: 0.8rem;
     letter-spacing: 2px;
+    font-weight: bold;
 }
 .hf-div , .wf-div{
-    margin: 0 20px;
     display: flex;
     flex-direction: column;
     background-color: rgb( 0 , 0 , 0 , 0.5 );
+    box-shadow: 3px 5px 3px rgb(49, 49, 49 , 0.2);
     border-radius: 10px;
 }
 .hf-info , .wf-info{

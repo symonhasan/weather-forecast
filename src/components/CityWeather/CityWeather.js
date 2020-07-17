@@ -48,6 +48,7 @@ const CityWeather = (props) => {
 
   return (
     <div className="city-info">
+      <div className="ci-upper">
       <Day
         payload={{
           sunrise: sunrise,
@@ -70,6 +71,7 @@ const CityWeather = (props) => {
           wind: wind,
         }}
       />
+      </div>
       {props.userLongitude && props.userLatitude ? (
         <Forecast
           latitude={props.userLatitude}

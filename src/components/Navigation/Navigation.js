@@ -7,7 +7,7 @@ const Navigation = (props) => {
       <p className="top-nav-title">
         <span className="fas fa-bars"></span> Weather Forecast
       </p>
-      <input className="top-nav-search" type="text" placeholder="Search ..." />
+      <input className="top-nav-search" type="text" placeholder="Search Location , City..." />
     </div>
   );
 };
