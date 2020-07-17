@@ -22,7 +22,6 @@ const CityWeather = (props) => {
   let sunset = "";
 
   if (props.userCurrLocData) {
-    console.log(props.userCurrLocData);
     if (props.userCurrLocData.weather) {
       weatherIconUrl = `http://openweathermap.org/img/wn/${props.userCurrLocData.weather[0].icon}@4x.png`;
       weather = props.userCurrLocData.weather[0].main;

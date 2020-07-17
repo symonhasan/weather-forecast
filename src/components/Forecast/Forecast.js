@@ -194,7 +194,7 @@ const Forecast = (props) => {
     setPage(0);
   };
 
-  if (!weDataApi) {
+  if (!hrDataApi) {
     const lat = props.latitude;
     const lon = props.longitude;
     const API_KEY = "4d67ae696f5ec0d7e0287b173d413c6b";
@@ -209,10 +209,10 @@ const Forecast = (props) => {
       .catch((err) => {
         throw err;
       });
-    setweDataApi(true);
+    sethrDataApi(true);
   }
 
-  if (!hrDataApi) {
+  if (!weDataApi) {
     const lat = props.latitude;
     const lon = props.longitude;
     const API_KEY = "4d67ae696f5ec0d7e0287b173d413c6b";
@@ -227,7 +227,7 @@ const Forecast = (props) => {
       .catch((err) => {
         throw err;
       });
-      sethrDataApi( true );
+      setweDataApi( true );
   }
   return (
     <div className="forecast-div">

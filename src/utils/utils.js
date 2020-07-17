@@ -64,3 +64,16 @@ export const convertUnixDate = ( timeStamp ) => {
   const utcString = dateObj.toUTCString();
   return utcString.slice( 0 , 16 );
 }
+
+export const setHomeClass = (id) => {
+  let bgClass = "";
+  if (id >= 801 && id <= 804) bgClass = "cloud-bg";
+  else if (id === 800) bgClass = "sunny-bg";
+  else if (id >= 200 && id <= 232) bgClass = "thunder-bg";
+  else if (id >= 600 && id <= 622) bgClass = "snow-bg";
+  else if (id >= 500 && id <= 531) bgClass = "rain-bg";
+  else if (id >= 300 && id <= 321) bgClass = "thunder-bg";
+  else if (id === 741) bgClass = "fog-bg";
+  else bgClass = "def-bg";
+  return bgClass;
+}

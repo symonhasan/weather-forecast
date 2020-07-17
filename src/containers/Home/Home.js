@@ -3,20 +3,9 @@ import "./Home.css";
 import { connect } from "react-redux";
 import Navigation from "../../components/Navigation/Navigation";
 import CityWeather from "../../components/CityWeather/CityWeather";
+import { setHomeClass } from "../../utils/utils";
 
 class Home extends Component {
-  setHomeClass(id) {
-    let bgClass = "";
-    if (id >= 801 && id <= 804) bgClass = "cloud-bg";
-    else if (id === 800) bgClass = "sunny-bg";
-    else if (id >= 200 && id <= 232) bgClass = "thunder-bg";
-    else if (id >= 600 && id <= 622) bgClass = "snow-bg";
-    else if (id >= 500 && id <= 531) bgClass = "rain-bg";
-    else if (id >= 300 && id <= 321) bgClass = "thunder-bg";
-    else if (id === 741) bgClass = "fog-bg";
-    else bgClass = "def-bg";
-    return bgClass;
-  }
 
   componentDidMount() {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -30,7 +19,7 @@ class Home extends Component {
           return response.json();
         })
         .then((resData) => {
-          const bgClass = this.setHomeClass(resData.weather[0].id);
+          const bgClass = setHomeClass( resData.weather[0].id );
           this.props.setUserCurrentLocationWeather(resData, bgClass);
         })
         .catch((err) => {
@@ -42,7 +31,7 @@ class Home extends Component {
   render() {
     return (
       <div className={this.props.bgClass}>
-        <Navigation />
+        <Navigation history={this.props.history}/>
         <CityWeather />
       </div>
     );

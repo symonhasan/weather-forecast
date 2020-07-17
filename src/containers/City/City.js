@@ -1,17 +1,14 @@
-import React, { useState } from "react";
-import "./Navigation.css";
+import React, { Component } from "react";
+import "../Home/Home.css";
 import { connect } from "react-redux";
+import Navigation from "../../components/Navigation/Navigation";
+import CityWeather from "../../components/CityWeather/CityWeather";
 import { setHomeClass } from "../../utils/utils";
 
-const Navigation = (props) => {
-  const [searchData, setSearchData] = useState("");
-
-  const searchOnChangeHandler = (e) => {
-    setSearchData(e.target.value);
-  };
-  const searchOnEnterKeyPressHandler = (e) => {
+class City extends Component {
+  componentDidMount() {
     const API_KEY = "4d67ae696f5ec0d7e0287b173d413c6b";
-    const location = searchData;
+    const { location } = this.props.match.params;
     const URL = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}`;
     fetch(URL)
       .then((response) => {
@@ -20,41 +17,38 @@ const Navigation = (props) => {
       .then((resData) => {
         if (resData.cod === 200) {
           const bgClass = setHomeClass(resData.weather[0].id);
-          props.setUserCurrentLocationWeather(resData, bgClass);
-          props.setUserCurrentLocation({
+          this.props.setUserCurrentLocationWeather(resData, bgClass);
+          this.props.setUserCurrentLocation({
             coords: {
               latitude: resData.coord.lat,
               longitude: resData.coord.lon,
             },
           });
-          props.history.push(`${searchData}`);
         } else {
           alert("City not found!");
-          props.history.push("/");
+          this.props.history.push("/");
         }
       })
       .catch((err) => {
         throw err;
       });
-  };
+  }
 
-  return (
-    <div className="top-nav">
-      <p className="top-nav-title">
-        <span className="fas fa-bars"></span> Weather Forecast
-      </p>
-      <input
-        className="top-nav-search"
-        type="text"
-        placeholder="Search Location , City..."
-        value={searchData}
-        onChange={searchOnChangeHandler}
-        onKeyPress={(e) =>
-          e.key === "Enter" ? searchOnEnterKeyPressHandler() : null
-        }
-      />
-    </div>
-  );
+  render() {
+    return (
+      <div className={this.props.bgClass}>
+        <Navigation history={this.props.history} />
+        <CityWeather />
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    userCurrLocData: state.userCurrLocData,
+    bgClass: state.bgClass,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -71,4 +65,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Navigation);
+export default connect(mapStateToProps, mapDispatchToProps)(City);
