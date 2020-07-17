@@ -23,6 +23,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         hourlyWeatherData: action.payload,
       };
+    case "STORE_WEEKLY_DATA":
+        return{
+            ...state,
+            weeklyWeatherData: action.payload,
+        }
     default:
   }
 

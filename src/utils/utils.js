@@ -58,3 +58,9 @@ export const convertUnixTime = (timeStamp) => {
   if (hour >= 0 && hour <= 9) hour = "0" + hour;
   return `${hour}:${minute}`;
 };
+
+export const convertUnixDate = ( timeStamp ) => {
+  const dateObj = new Date(timeStamp * 1000);
+  const utcString = dateObj.toUTCString();
+  return utcString.slice( 0 , 16 );
+}

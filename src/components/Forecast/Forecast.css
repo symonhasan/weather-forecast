@@ -24,14 +24,14 @@
     font-size: 0.8rem;
     letter-spacing: 2px;
 }
-.hf-div{
+.hf-div , .wf-div{
     margin: 0 20px;
     display: flex;
     flex-direction: column;
     background-color: rgb( 0 , 0 , 0 , 0.5 );
     border-radius: 10px;
 }
-.hf-info{
+.hf-info , .wf-info{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -39,13 +39,16 @@
     padding: 10px 0;
     
 }
-.hf-info p{
+.hf-info p , .wf-info p{
     color: #E3E9ED;
     padding: 10px;
     width: calc(100% / 7 );
     text-align: center;
 }
-.hf-info-header p{
+.wf-info p{
+    width: calc( 100% / 9 );
+}
+.hf-info-header p , .wf-info-header p{
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -55,6 +58,16 @@
     font-size: 0.9rem;
     text-align: center;
     width: calc(100% / 7 );
+}
+.wf-info-data p{
+    font-size: 0.9rem;
+    text-align: center;
+    width: calc(100% / 9 );
+}
+.wf-multi{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
 }
 .peg-div{
     display: flex;
