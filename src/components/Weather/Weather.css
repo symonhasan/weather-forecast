@@ -83,3 +83,24 @@
     font-size: 1.4rem;
     align-self: flex-end;
 }
+
+@media only screen and (max-width: 720px) {
+    .weather-div{
+        flex-wrap: wrap;
+    }    
+    .weather-additional-info{
+        width: 100%;
+        margin-top: 20px;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    
+}
+@media only screen and (max-width: 600px ){
+    .weather-temp-additional span > p {
+        display: none;
+    }
+    .weather-temp-additional span{
+        font-size: 1.2rem;
+    }
+}

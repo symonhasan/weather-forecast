@@ -27,3 +27,8 @@
 .day-div-date p > span {
     font-size: 0.8rem;;
 }
+@media only screen and (max-width: 540px) {
+    .day-div{
+        flex-direction: column;
+    }
+}

@@ -47,6 +47,7 @@
     width: calc( 100% / 9 );
 }
 .hf-info-header p , .wf-info-header p{
+    width: calc( 100% / 7 );
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -83,4 +84,18 @@
 }
 .peg-div i:hover{
     color: #044f81;
+}
+@media only screen and (max-width: 680px) {
+    .wf-div{
+        overflow-x: scroll;
+    }
+    .wf-info p , .wf-info-header p{
+        min-width: calc( 100vw / 9 );
+    }
+    .hf-div{
+        overflow-x: scroll;
+    }
+    .hf-info p , .hf-info-header p{
+        min-width: calc( 100vw / 7 );
+    }
 }
