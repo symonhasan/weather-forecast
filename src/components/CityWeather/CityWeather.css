@@ -15,5 +15,13 @@
     .city-info{
         margin-left: 2vw;
         margin-right: 2vw;
+        margin-top: 2vh;
+    }
+}
+@media only screen and (max-width: 450px) {
+    .city-info{
+        margin-left: .5vw;
+        margin-right: .5vw;
+        margin-top: 1vh;
     }
 }

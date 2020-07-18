@@ -12,7 +12,6 @@ const Weather = (props) => {
           <img
             src={props.payload.weatherIconUrl}
             alt=""
-            style={{ borderRight: "2px solid #ccc" }}
           />
           <p>{props.payload.weather}</p>
           <span>{props.payload.weatherDesc}</span>
@@ -23,7 +22,7 @@ const Weather = (props) => {
           </p>
           <p className="city-temp">
             {props.payload.currentTemp}
-            <sup>&deg;C</sup> <sup>|</sup> <sup>&deg;F</sup>
+            <sup>&deg;C</sup>
           </p>
           <div className="weather-temp-additional">
             <span className="fas fa-temperature-low">

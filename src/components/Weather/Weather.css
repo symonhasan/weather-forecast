@@ -48,6 +48,9 @@
     flex-direction: column;
     align-items: center;
 }
+.weather-img img{
+    border-right: 1px solid #ccc;
+}
 .weather-img p{
     color: white;
     font-size: 1.5rem;
@@ -102,5 +105,24 @@
     }
     .weather-temp-additional span{
         font-size: 1.2rem;
+    }
+    .weather-div{
+        margin-top: 2vw;
+    }
+}
+@media only screen and (max-width: 450px ){
+    .weather-div-info{
+        padding-left: 0;
+    }
+    .weather-img img{
+        border: none;
+    }
+    .weather-div{
+        margin-top: 1vw;
+    }
+    .city-name{
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+        color: white;
     }
 }
