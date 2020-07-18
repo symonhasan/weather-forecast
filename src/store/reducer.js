@@ -1,5 +1,7 @@
 const initialState = {
   bgClass: "",
+  hrFlag: false,
+  weFlag: false,
   userCurrLocData: {},
 };
 
@@ -11,6 +13,8 @@ const reducer = (state = initialState, action) => {
         ...state,
         userLatitude: latitude,
         userLongitude: longitude,
+        hrFlag: false,
+        weFlag: false,
       };
     case "USER_CLOC_WEATHER":
       return {
@@ -30,6 +34,16 @@ const reducer = (state = initialState, action) => {
             ...state,
             weeklyWeatherData: action.payload,
         }
+    case "SET_HR_FLAG":
+      return{
+        ...state,
+        hrFlag: true,
+      }
+    case "SET_WE_FLAG":
+      return{
+        ...state,
+        weFlag: true,
+      }
     default:
   }
 

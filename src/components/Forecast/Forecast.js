@@ -192,7 +192,7 @@ const Forecast = (props) => {
     setPage(0);
   };
 
-  if (props.hourlyWeatherData === undefined ) {
+  if (!props.weFlag ) {
     const lat = props.latitude;
     const lon = props.longitude;
     const API_KEY = "4d67ae696f5ec0d7e0287b173d413c6b";
@@ -207,9 +207,10 @@ const Forecast = (props) => {
       .catch((err) => {
         throw err;
       });
+      props.setWeFlag();
   }
 
-  if (props.weeklyWeatherData === undefined ) {
+  if (!props.hrFlag ) {
     const lat = props.latitude;
     const lon = props.longitude;
     const API_KEY = "4d67ae696f5ec0d7e0287b173d413c6b";
@@ -224,6 +225,7 @@ const Forecast = (props) => {
       .catch((err) => {
         throw err;
       });
+      props.setHrFlag();
   }
   return (
     <div className="forecast-div">
@@ -274,6 +276,8 @@ const mapStateToProps = (state) => {
   return {
     hourlyWeatherData: state.hourlyWeatherData,
     weeklyWeatherData: state.weeklyWeatherData,
+    hrFlag: state.hrFlag,
+    weFlag: state.weFlag,
   };
 };
 
@@ -285,6 +289,12 @@ const mapDispatchToProps = (dispatch) => {
     storeWeeklyFetchedData: (data) => {
       dispatch({ type: "STORE_WEEKLY_DATA", payload: data });
     },
+    setHrFlag: () => {
+      dispatch({type: "SET_HR_FLAG"});
+    },
+    setWeFlag: () => {
+      dispatch({type: "SET_WE_FLAG"});
+    }
   };
 };
 

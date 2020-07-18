@@ -40,8 +40,8 @@ const Navigation = (props) => {
 
   return (
     <div className="top-nav">
-      <p className="top-nav-title">
-        <span className="fas fa-bars"></span> Weather Forecast
+      <p className="top-nav-title" onClick={()=>{props.history.push("/")}}>
+        Weather Forecast
       </p>
       <input
         className="top-nav-search"

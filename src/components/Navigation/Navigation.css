@@ -13,6 +13,7 @@
     font-size: 1.3rem;
     color: rgb(255, 255, 255 , 0.8);
     letter-spacing: 2px;
+    cursor: pointer;
 }
 .top-nav-search{
     padding: 5px;
