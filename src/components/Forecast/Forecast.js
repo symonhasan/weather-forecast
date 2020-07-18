@@ -179,8 +179,6 @@ const renderWeeklyForecast = (
 const Forecast = (props) => {
   const [mode, setMode] = useState("Hourly");
   const [page, setPage] = useState(0);
-  const [hrDataApi , sethrDataApi ] = useState(false);
-  const [weDataApi , setweDataApi ] = useState( false );
 
   const incrementPage = () => {
     if( mode === "Weekly" && page === 0 ) setPage(1);
@@ -194,7 +192,7 @@ const Forecast = (props) => {
     setPage(0);
   };
 
-  if (!hrDataApi) {
+  if (props.hourlyWeatherData === undefined ) {
     const lat = props.latitude;
     const lon = props.longitude;
     const API_KEY = "4d67ae696f5ec0d7e0287b173d413c6b";
@@ -209,10 +207,9 @@ const Forecast = (props) => {
       .catch((err) => {
         throw err;
       });
-    sethrDataApi(true);
   }
 
-  if (!weDataApi) {
+  if (props.weeklyWeatherData === undefined ) {
     const lat = props.latitude;
     const lon = props.longitude;
     const API_KEY = "4d67ae696f5ec0d7e0287b173d413c6b";
@@ -227,7 +224,6 @@ const Forecast = (props) => {
       .catch((err) => {
         throw err;
       });
-      setweDataApi( true );
   }
   return (
     <div className="forecast-div">

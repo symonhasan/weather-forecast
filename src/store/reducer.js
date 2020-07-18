@@ -17,6 +17,8 @@ const reducer = (state = initialState, action) => {
         ...state,
         userCurrLocData: action.payload.currLocData,
         bgClass: action.payload.bgClass,
+        hourlyWeatherData: undefined,
+        weeklyWeatherData: undefined,
       };
     case "STORE_HOURLY_DATA":
       return {
