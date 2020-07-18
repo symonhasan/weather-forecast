@@ -7,7 +7,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename="/weather-forecast">
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/:location" component={City}/>
