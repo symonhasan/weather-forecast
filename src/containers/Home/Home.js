@@ -13,7 +13,7 @@ class Home extends Component {
       const userLatitude = this.props.userLatitude;
       const userLongitude = this.props.userLongitude;
       const API_KEY = "4d67ae696f5ec0d7e0287b173d413c6b";
-      const URL = `http://api.openweathermap.org/data/2.5/weather?lat=${userLatitude}&lon=${userLongitude}&appid=${API_KEY}`;
+      const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${userLatitude}&lon=${userLongitude}&appid=${API_KEY}`;
       fetch(URL)
         .then((response) => {
           return response.json();

@@ -9,7 +9,7 @@ class City extends Component {
   componentDidMount() {
     const API_KEY = "4d67ae696f5ec0d7e0287b173d413c6b";
     const { location } = this.props.match.params;
-    const URL = `http://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}`;
+    const URL = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${API_KEY}`;
     fetch(URL)
       .then((response) => {
         return response.json();

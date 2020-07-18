@@ -14,7 +14,7 @@ const renderHourlyWeatherData = (data, page) => {
     const { humidity, pressure, temp } = el;
     const wind = el.wind_speed;
     const weather = el.weather[0].main;
-    const iconUrl = `http://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`;
+    const iconUrl = `https://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`;
     const feelsLike = convertTempToCelcius(el.feels_like);
     const celTemp = convertTempToCelcius(temp);
     const time = convertUnixTime(el.dt);
@@ -58,7 +58,7 @@ const renderWeeklyWeatherData = (data, page) => {
     const sunset = convertUnixTime(el.sunset);
     const wind = el.wind_speed;
     const weather = el.weather[0].main;
-    const iconUrl = `http://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`;
+    const iconUrl = `https://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`;
     const feelsLike = {
       morn: convertTempToCelcius(el.feels_like.morn),
       day: convertTempToCelcius(el.feels_like.day),

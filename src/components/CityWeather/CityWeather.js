@@ -23,7 +23,7 @@ const CityWeather = (props) => {
 
   if (props.userCurrLocData) {
     if (props.userCurrLocData.weather) {
-      weatherIconUrl = `http://openweathermap.org/img/wn/${props.userCurrLocData.weather[0].icon}@4x.png`;
+      weatherIconUrl = `https://openweathermap.org/img/wn/${props.userCurrLocData.weather[0].icon}@4x.png`;
       weather = props.userCurrLocData.weather[0].main;
       weatherDesc = props.userCurrLocData.weather[0].description;
     }
