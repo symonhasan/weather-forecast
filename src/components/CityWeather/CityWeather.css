@@ -1,0 +1,19 @@
+.city-info{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+.ci-upper{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 3vw 0;
+    box-shadow: 3px 5px 3px rgb(49, 49, 49 , 0.2);
+    border-radius: 10px;
+}
+@media only screen and (max-width: 850px) {
+    .city-info{
+        margin-left: 2vw;
+        margin-right: 2vw;
+    }
+}

@@ -1,0 +1,32 @@
+.sunny-bg{
+    background: url("../../assets/img/sunny.jpg") left 0% bottom 0% / cover no-repeat border-box;
+    min-height: 100vh;
+}
+.rain-bg{
+    background: url("../../assets/img/drizzle.jpg") left 0% bottom 0% / cover no-repeat border-box;
+    min-height: 100vh;
+}
+.drizzle-bg{
+    background: url("../../assets/img/drizzle.jpg") left 0% bottom 0% / cover no-repeat border-box;
+    min-height: 100vh;
+}
+.fog-bg{
+    background: url("../../assets/img/fog.jpg") left 0% bottom 0% / cover no-repeat border-box;
+    min-height: 100vh;
+}
+.thunder-bg{
+    background: url("../../assets/img/thunder.jpg") left 0% bottom 0% / cover no-repeat border-box;
+    min-height: 100vh;
+}
+.cloud-bg{
+    background: url("../../assets/img/cloud.jpg") left 0% bottom 0% / cover no-repeat border-box;
+    min-height: 100vh;
+}
+.snow-bg{
+    background: url("../../assets/img/snow.jpg") left 0% bottom 0% / cover no-repeat border-box;
+    min-height: 100vh;
+}
+.def-bg{
+    background: url("../../assets/img/sunny2.jpg") left 0% bottom 0% / cover no-repeat border-box;
+    min-height: 100vh;
+}

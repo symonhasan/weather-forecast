@@ -1,0 +1,106 @@
+.weather-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 5vh;
+}
+.weather-div-left{
+    display: flex;
+    flex-flow: row nowrap;
+    align-content: center;
+}
+.weather-div-info{
+    padding-left: 20px;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.city-name{
+    font-size: 2rem;
+    letter-spacing: 2px;
+    color: white;
+}
+.city-temp{
+    font-size: 5rem;
+    color: white;
+}
+.city-temp sup{
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.weather-temp-additional{
+    display: flex;
+    flex-direction: row nowrap;
+    font-size: 1.7rem;
+    color: #E3E9ED;
+    margin-top: 28px;
+}
+.weather-temp-additional span{
+    padding: 0 20px;
+}
+.weather-temp-additional span p{
+    font-size: 0.75rem;
+    margin-top: 15px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+.weather-img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.weather-img p{
+    color: white;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    margin-top: -30px;
+}
+.weather-img span{
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: #ccc;
+    text-transform: capitalize;
+}
+
+.weather-additional-info{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    min-height: inherit;
+    justify-content: space-between;
+}
+.weather-additional-info > span{
+    display: flex;
+    flex-direction: column;
+}
+.wad-type{
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    letter-spacing: 3px;
+}
+.wad-value{
+    font-size: 1.4rem;
+    align-self: flex-end;
+}
+
+@media only screen and (max-width: 720px) {
+    .weather-div{
+        flex-wrap: wrap;
+    }    
+    .weather-additional-info{
+        width: 100%;
+        margin-top: 20px;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    
+}
+@media only screen and (max-width: 600px ){
+    .weather-temp-additional span > p {
+        display: none;
+    }
+    .weather-temp-additional span{
+        font-size: 1.2rem;
+    }
+}
